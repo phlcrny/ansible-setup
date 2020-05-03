@@ -12,10 +12,15 @@
     - name: Core packages
       apt:
         name: [
+          "curl",
           "git",
           "htop",
+          "python3",
+          "python3-pip",
+          "tree",
           "tmux",
-          "vim"
+          "vim",
+          "wget"
         ]
         state: present
         update_cache: yes
