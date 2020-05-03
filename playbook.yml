@@ -205,7 +205,6 @@
           ansible-pull playbook.yml -U https://github.com/phlcrny/ansible-setup.git
           -d /etc/ansible-setup/
           -e "user={{ user }} dotfiles_src={{ dotfiles_src }}"
-          -c="local"
           --clean
         state: present
         minute: "0"
