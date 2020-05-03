@@ -1,0 +1,6 @@
+---
+- name: example-role
+  src: https://github.com/philccarney/PlasterTemplates
+  scm: git
+  version: master
+...
