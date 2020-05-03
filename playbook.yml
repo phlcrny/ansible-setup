@@ -202,11 +202,11 @@
       cron:
         name: ansible-pull
         job: >
-          "ansible-pull playbook.yml -U https://github.com/phlcrny/ansible-setup.git
+          ansible-pull playbook.yml -U https://github.com/phlcrny/ansible-setup.git
           -d /etc/ansible-setup/
           -e "user={{ user }} dotfiles_src={{ dotfiles_src }}"
           -c="local"
-          --clean"
+          --clean
         state: present
         minute: "0"
         hour: "18"
