@@ -4,9 +4,9 @@
   gather_facts: True
   become: yes
   vars:
-    - gui: False
-    - user: 'phil'
-    - dotfiles_src: 'https://github.com/phlcrny/dotfiles.git'
+    user: 'phil'
+    gui: False
+    dotfiles_src: 'https://github.com/phlcrny/dotfiles.git'
 
   tasks:
     - name: Core packages
