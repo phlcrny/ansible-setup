@@ -47,7 +47,8 @@
       user:
         name: "{{ user }}"
         state: present
-        groups: sudo
+        groups:
+          - sudo
         append: yes
         home: "/home/{{ user }}"
         shell: /bin/bash
@@ -174,7 +175,8 @@
     - name: "Add user to docker group"
       user:
         name: "{{ user }}"
-        groups: docker
+        groups:
+          - docker
         append: yes
         state: present
       when: docker_install is succeeded
