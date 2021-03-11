@@ -4,6 +4,8 @@ An Ansible playbook to configure my Linux environments - inspiration (and some c
 
 ## Getting Started
 
+### Full
+
 1. Ensure Ansible is installed, ideally from the Ansible repository or via pip (see [here](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html))
 1. Clone this repository and ```cd``` to it
 
@@ -18,10 +20,14 @@ ansible-playbook playbook.yml --list-tasks --list-hosts
 ansible-playbook playbook.yml -e "gui=True user=johndoe dotfiles_src=https://github.com/JohnDoe/dotfiles.git"
 ```
 
-## Troubleshooting
+### Quick Start
 
-If Ansible complains about ```ansible.cfg``` being world-writable and therefore not a valid Ansible config, amend your permissions with chmod.
+Quickly run and install from GitHub as below. Usual warnings and disclaimers apply.
 
 ```bash
-chmod 0755 //path/to/repo -R
+curl https://raw.githubusercontent.com/phlcrny/ansible-setup/master/install.sh | sudo bash
 ```
+
+## Troubleshooting
+
+If Ansible complains about ```ansible.cfg``` being world-writable and therefore not a valid Ansible config, amend the permissions of the folder ``chmod 0755 //path/to/repo -R``
