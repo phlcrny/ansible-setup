@@ -5,8 +5,8 @@
   become: yes
   vars:
     - gui: False
-    - user: "johndoe"
-    - dotfiles_src: "https://github.com/thoughtbot/dotfiles.git"
+    - user: 'phil'
+    - dotfiles_src: 'https://github.com/phlcrny/dotfiles.git'
 
   tasks:
     - name: Core packages
