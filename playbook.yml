@@ -59,7 +59,6 @@
       git:
         repo: "{{ dotfiles_src }}"
         dest: "/home/{{ user }}/dotfiles"
-        version: master
         update: yes
       tags:
         - dotfiles
