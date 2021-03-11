@@ -1,11 +1,7 @@
 ---
-exclude_paths: []
-parseable: true
-quiet: false
+# Docs: https://github.com/ansible/ansible-lint
 rulesdir: []
 skip_list: []
-tags: []
-use_default_rules: true
+warn_list: []
 verbosity: 1
-# Example via ansible-lint docs: https://github.com/ansible/ansible-lint
 ...
