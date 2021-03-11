@@ -1,0 +1,15 @@
+---
+name: Ansible
+on: [ push ]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    container: phlcrny/ansible:latest
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Run ansible-lint
+        run: ansible-lint . -c .ansible-lint
+...
