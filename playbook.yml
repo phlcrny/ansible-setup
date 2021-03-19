@@ -9,12 +9,14 @@
     dotfiles_src: 'https://github.com/phlcrny/dotfiles.git'
 
   tasks:
-    - name: Check for GUI
+    - name: Check runlevel for GUI
       command: systemctl get-default
       register: runlevel
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
     - name: Set GUI variable
+      debug:
+        msg: "Runlevel: {{ runlevel.stdout }}"
       register: gui == 'True'
       when:
         - runlevel.stdout == 'graphical.target'
