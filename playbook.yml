@@ -15,9 +15,8 @@
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
     - name: Set GUI variable
-      debug:
-        msg: "Runlevel: {{ runlevel.stdout }}"
-      register: gui == 'True'
+      ansible.builtin.set_fact:
+        fact: 'True'
       when:
         - runlevel.stdout == 'graphical.target'
         - ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
