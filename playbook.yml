@@ -16,7 +16,7 @@
 
     - name: Set GUI variable
       ansible.builtin.set_fact:
-        fact: 'True'
+        gui: 'True'
       when:
         - runlevel.stdout == 'graphical.target'
         - ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
