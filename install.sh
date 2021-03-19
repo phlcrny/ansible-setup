@@ -18,4 +18,5 @@ git clone https://github.com/phlcrny/ansible-setup.git $CLONE_DIR && \
 
 echo "Running playbook with defaults" && \
 ansible-playbook "$CLONE_DIR/playbook.yml" && \
+echo "Reviewing creating cron jobs" && \
 crontab -l
