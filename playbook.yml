@@ -5,7 +5,6 @@
   become: yes
   vars:
     user: 'phil'
-    gui: 'False'
     dotfiles_src: 'https://github.com/phlcrny/dotfiles.git'
 
   tasks:
@@ -13,13 +12,6 @@
       command: systemctl get-default
       register: runlevel
       when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-
-    - name: Set GUI variable
-      ansible.builtin.set_fact:
-        gui: 'True'
-      when:
-        - runlevel.stdout == 'graphical.target'
-        - ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
 
     - name: Install CLI packages
       ansible.builtin.apt:
@@ -52,7 +44,7 @@
         cache_valid_time: 3600
       when:
         - ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
-        - gui == 'True'
+        - runlevel.stdout == 'graphical.target'
       tags:
         - apt
         - core_apps
@@ -238,7 +230,7 @@
         job: >
           ansible-pull playbook.yml -U https://github.com/phlcrny/ansible-setup.git
           -d /etc/ansible-setup/
-          -e "user={{ user }} gui={{ gui }} dotfiles_src={{ dotfiles_src }}"
+          -e "user={{ user }} dotfiles_src={{ dotfiles_src }}"
           --clean
         state: present
         minute: "0"
