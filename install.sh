@@ -15,7 +15,6 @@ fi
 
 echo "Cloning playbook to $CLONE_DIR" && \
 git clone https://github.com/phlcrny/ansible-setup.git $CLONE_DIR && \
-chmod 0755 $CLONE_DIR -r && \
 
 echo "Running playbook with defaults" && \
 ansible-playbook "$CLONE_DIR/playbook.yml" && \
