@@ -9,6 +9,17 @@
     dotfiles_src: 'https://github.com/phlcrny/dotfiles.git'
 
   tasks:
+    - name: Check for GUI
+      command: systemctl get-default
+      register: runlevel
+      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+    - name: Set GUI variable
+      register: gui == 'True'
+      when:
+        - runlevel.stdout == 'graphical.target'
+        - ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
     - name: Install CLI packages
       ansible.builtin.apt:
         name: [
