@@ -29,6 +29,8 @@ then
     apt-add-repository --yes --update ppa:ansible/ansible > /dev/null 2> /dev/null && \
     echo "Installing ansible..." && \
     apt-get install -y ansible > /dev/null 2> /dev/null
+else
+    echo "No Ansible pre-req support for '$NAME' yet, install it yourself and try again."
 fi
 
 echo "Cloning playbook to $CLONE_DIR" && \
