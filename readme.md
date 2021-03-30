@@ -17,7 +17,7 @@ ansible-playbook playbook.yml
 ansible-playbook playbook.yml --list-tasks --list-hosts
 
 # To run it with custom values - recommended
-ansible-playbook playbook.yml -e "gui=True user=johndoe dotfiles_src=https://github.com/JohnDoe/dotfiles.git"
+ansible-playbook playbook.yml -e "user=johndoe dotfiles_src=https://github.com/JohnDoe/dotfiles.git"
 ```
 
 ### Quick Start
