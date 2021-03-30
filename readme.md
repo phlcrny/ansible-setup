@@ -22,10 +22,10 @@ ansible-playbook playbook.yml -e "user=johndoe dotfiles_src=https://github.com/J
 
 ### Quick Start
 
-Quickly run and install from GitHub as below. Usual warnings and disclaimers apply.
+Quickly run and install from GitHub as below, ``install.sh`` will prompt for custom values. Usual warnings and disclaimers apply.
 
 ```bash
-curl https://raw.githubusercontent.com/phlcrny/ansible-setup/master/install.sh | sudo bash
+curl -L https://crny.link/ansible-bootstrap | sudo bash
 ```
 
 ## Troubleshooting
