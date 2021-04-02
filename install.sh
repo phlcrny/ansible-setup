@@ -20,8 +20,7 @@ if [ "$choice" == "y*" ]; then
     echo "dotfiles: $dotfiles"
 fi
 
-if [[ $NAME == 'Ubuntu' ]]
-then
+if [[ $NAME == 'Ubuntu' ]]; then
     echo "Installing pre-reqs..." && \
     apt-get update > /dev/null 2> /dev/null && \
     apt-get install -y git curl software-properties-common > /dev/null 2> /dev/null && \
