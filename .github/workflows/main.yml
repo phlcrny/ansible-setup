@@ -4,7 +4,7 @@ on: [ push ]
 jobs:
   lint:
     runs-on: ubuntu-latest
-    container: phlcrny/ansible:latest
+    container: phlcrny/ansible@sha256:aed2bbb310b0528dbbdfec07b98833ba1580d3a4699e4427766fff945609756a
 
     steps:
       - name: Check out repository code
