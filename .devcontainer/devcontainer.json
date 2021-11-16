@@ -1,19 +1,31 @@
 {
-	"name": "Local Ansible",
-	"image": "phlcrny/ansible:latest",
-	"mounts": [
-		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
-	],
+	"name": "Ansible",
+	"image": "phlcrny/ansible@sha256:aed2bbb310b0528dbbdfec07b98833ba1580d3a4699e4427766fff945609756a",
 	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash"
+		"ansible.ansible.path": "/usr/local/bin/ansible",
+		"ansible.ansiblePlaybook.path": "/usr/local/bin/ansible-playbook",
+		"ansible.vault.executablePath": "/usr/local/bin/ansible-vault",
+		"files.trimTrailingWhitespace": true,
+		"[ansible]": {
+			"editor.rulers": [
+			  160 /* ansible-lint #204 - https://github.com/ansible/ansible-lint/blob/master/lib/ansiblelint/rules/LineTooLongRule.py */
+			]
+		},
+		"[yaml]": {
+			"editor.rulers": [
+			  160 /* ansible-lint #204 - https://github.com/ansible/ansible-lint/blob/master/lib/ansiblelint/rules/LineTooLongRule.py */
+			]
+		}
 	},
 	"extensions": [
-		"vscoss.vscode-ansible",
-		"redhat.vscode-yaml",
-		"oderwat.indent-rainbow"
+		"oderwat.indent-rainbow",
+		"redhat.ansible",
 	],
-	"postCreateCommand": "ansible --version"
-	// "forwardPorts": [],
-	// "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
-	// "remoteUser": "vscode"
+	"mounts": [
+		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+	],
+	"containerEnv": {
+		"ANSIBLE_CONFIG": "${containerWorkspaceFolder}/ansible.cfg"
+	},
+	"postCreateCommand": "chmod 0644 ${containerWorkspaceFolder} && ansible --version"
 }
