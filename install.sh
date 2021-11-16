@@ -22,12 +22,12 @@ fi
 
 if [[ $NAME == 'Ubuntu' ]]; then
     echo "Installing pre-reqs..." && \
-    apt-get update > /dev/null 2> /dev/null && \
-    apt-get install -y git curl software-properties-common > /dev/null 2> /dev/null && \
+    apt-get update > /dev/null && \
+    apt-get install -y git curl software-properties-common > /dev/null && \
     echo "Installing ansible repository..." && \
-    apt-add-repository --yes --update ppa:ansible/ansible > /dev/null 2> /dev/null && \
+    apt-add-repository --yes --update ppa:ansible/ansible > /dev/null && \
     echo "Installing ansible..." && \
-    apt-get install -y ansible > /dev/null 2> /dev/null
+    apt-get install -y ansible > /dev/null
 else
     echo "No Ansible pre-req support for '$NAME' yet, install it yourself and try again."
 fi
