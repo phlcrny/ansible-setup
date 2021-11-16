@@ -12,10 +12,10 @@ if [ "$choice" == "y*" ]; then
         username="phil"
     fi
     echo "User: $username"
-    echo -n "Enter dotfiles repo (default: https://github.com/JohnDoe/dotfiles.git): "
+    echo -n "Enter dotfiles repo (default: https://github.com/phlcrny/dotfiles.git): "
     read dotfiles
     if [ "$dotfiles" == "" ]; then
-        dotfiles="https://github.com/JohnDoe/dotfiles.git"
+        dotfiles="https://github.com/phlcrny/dotfiles.git"
     fi
     echo "dotfiles: $dotfiles"
 fi
